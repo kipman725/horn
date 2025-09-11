@@ -6,3 +6,8 @@ def SlotMaxBeam(fh, beam_width):
     ktr = 244; #-9dB for rectangular throat
     dt = ktr/math.sin(math.radians(beam_width/2))/fh;
     return dt;
+
+#Flare constant for a given cutoff for an exponential horn
+def FcExp(fc):
+    m = 4*math.pi*fc/344;
+    return m;
