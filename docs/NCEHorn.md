@@ -32,7 +32,7 @@ Where $f_c$ is the exponential horn cuttoff frequency and C the speed of sound (
 
 $$
 \begin{align}
-\frac{dA}{dz} = A_0k_ee^{k_eZ}
+\frac{\text{d}A}{\text{d}z} = A_0k_ee^{k_eZ}
 \end{align}
 $$
 
@@ -40,7 +40,7 @@ $$
 
 $$
 \begin{align}
-r = r_0+z\tan\big(\frac{\theta_i}{2}\big)
+r = r_0+z\tan\left(\frac{\theta_i}{2}\right)
 \end{align}
 $$
 
@@ -52,13 +52,13 @@ $$
 
 $$
 \begin{align}
-r(z) = \sqrt\frac{A_0}{\pi}+z\tan\big(\frac{\theta_i}{2}\big)
+r(z) = \sqrt\frac{A_0}{\pi}+z\tan\left(\frac{\theta_i}{2}\right)
 \end{align}
 $$
 
 $$
 \begin{align}
-A(z) = \pi r^2 = \pi\big(\frac{A_0}{\pi}+2z\tan\big(\frac{\theta_i}{2}\big)\sqrt\frac{A_0}{\pi}+z^2\tan^2\big(\frac{\theta_i}{2}\big)\big)
+A(z) = \pi r^2 = \pi\left(\frac{A_0}{\pi}+2z\tan\left(\frac{\theta_i}{2}\right)\sqrt\frac{A_0}{\pi}+z^2\tan^2\left(\frac{\theta_i}{2}\right)\right)
 \end{align}
 $$
 
@@ -72,13 +72,13 @@ $$
 
 $$
 \begin{align}
-k_{C1} = 2\pi\tan{\big(\frac{\theta_i}{2}\big)}\sqrt{\frac{A_0}{\pi}} = \tan{\big(\frac{\theta_i}{2}\big)}\sqrt{4\pi A_0}
+k_{C1} = 2\pi\tan{\left(\frac{\theta_i}{2}\right)}\sqrt{\frac{A_0}{\pi}} = \tan{\left(\frac{\theta_i}{2}\right)}\sqrt{4\pi A_0}
 \end{align}
 $$
 
 $$
 \begin{align}
-k_{C2} = \tan^2\big(\frac{\theta_i}{2}\big)
+k_{C2} = \tan^2\left(\frac{\theta_i}{2}\right)
 \end{align}
 $$
 
@@ -86,7 +86,7 @@ The area expansion rate of the conic horn is therfore:
 
 $$
 \begin{align}
-\frac{dA}{dz}=k_{C1}+2k_{C2}z
+\frac{\text{d}A}{\text{d}z} = k_{C1}+2k_{C2}z
 \end{align}
 $$
 
@@ -102,7 +102,7 @@ We can then define a linear blend of the two horns over length, $L_b$, reverting
 
 $$
 \begin{align}
-A = \big(\frac{z}{L_b}\big)A_{c}+\big(1-\frac{z}{L_b}\big)A_{e}
+A = \left(\frac{z}{L_b}\right)A_{c}+\left(1-\frac{z}{L_b}\right)A_{e}
 \end{align}
 $$
 
@@ -110,7 +110,7 @@ $$
 \begin{align}
 A(z) =
 \begin{cases}
-\big(\frac{z}{L_b}\big)(A_0+k_{C1}z+k_{C2}z^2)+\big(1-\frac{z}{L_b}\big)A_0e^{k_eZ} & \text{if $z\le L_b$} \\
+\left(\frac{z}{L_b}\right)(A_0+k_{C1}z+k_{C2}z^2)+\left(1-\frac{z}{L_b}\right)A_0e^{k_eZ} & \text{if $z\le L_b$} \\
 A_0+k_{C1}z+k_{C2}z^2 & \text{if $z > L_b$} \\
 \end{cases} 
 \end{align}
