@@ -50,3 +50,19 @@ $A(z) = \big(\frac{z}{L_b}\big)(A_0+k_{C1}z+k_{C2}z^2)+\big(1-\frac{z}{L_b}\big)
 
 $A(z) = A_0+k_{C1}z+k_{C2}z^2 \quad \{ \ z > L_b$
 
+$$
+\begin{align}
+  a &= b + c \\
+  d &= e + f
+\end{align}
+$$
+$$
+X =
+\begin{cases}
+1 & \text{if $a=0$} \\
+1 & \text{if $b=1$} \\
+1 & \text{if $c=5$} \\
+1 & \text{if $d=9$} \\
+0 & \text{otherwise}
+\end{cases}
+$$
