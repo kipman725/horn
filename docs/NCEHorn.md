@@ -4,7 +4,7 @@
 
 The aim of this work is to develop a horn contour for midrange horns that has an improved throat acoustic impedance characteristic compared to a conical horn, while still displaying constant directivity chacteristics in the frequency band of interest.  To ease construction this horn contour will consist of three sections: throat, middle conical section and the mouth section.  The middle section will be conical to have flat walls, considerably easing constuction complexity.    
 
-For ease of comparison of the contours we consider only the simpliest case of two section (throat and middle) axisymetric (round) horns.  For simulation purposes the finite horns will be terminated in acoustic absorber to eliminate mouth effects.  Four horns are the compared: conic, exponential, conic-exponential and the contour proposed in this work, blended conic-exponential.
+For ease of comparison of the contours we consider only the simpliest case of two section (throat and middle) axisymetric (round) horns.  For simulation purposes the finite horns will be terminated in acoustic absorber to eliminate mouth effects.  Four horns are the compared: conic, exponential, conic-exponential (CE) and the contour proposed in this work, blended conic-exponential (BCE).
 
 ## Exponential horn:
 
@@ -12,7 +12,7 @@ Exponential horn, Area, A and cross section radius, r:
 
 $$
 \begin{align}
-A(z)=A_0e^{k_eZ}
+A(z)=A_0e^{k_ez}
 \end{align}
 $$
 
@@ -32,7 +32,7 @@ Where $f_c$ is the exponential horn cuttoff frequency and C the speed of sound (
 
 $$
 \begin{align}
-\frac{\text{d}A}{\text{d}z} = A_0k_ee^{k_eZ}
+\frac{\text{d}A}{\text{d}z} = A_0k_ee^{k_ez}
 \end{align}
 $$
 
@@ -78,7 +78,7 @@ $$
 
 $$
 \begin{align}
-k_{C2} = \tan^2\left(\frac{\theta_i}{2}\right)
+k_{C2} = \pi\tan^2\left(\frac{\theta_i}{2}\right)
 \end{align}
 $$
 
@@ -110,7 +110,7 @@ $$
 \begin{align}
 A(z) =
 \begin{cases}
-\left(\frac{z}{L_b}\right)(A_0+k_{C1}z+k_{C2}z^2)+\left(1-\frac{z}{L_b}\right)A_0e^{k_eZ} & \text{if $z\le L_b$} \\
+\left(\frac{z}{L_b}\right)(A_0+k_{C1}z+k_{C2}z^2)+\left(1-\frac{z}{L_b}\right)A_0e^{k_ez} & \text{if $z\le L_b$} \\
 A_0+k_{C1}z+k_{C2}z^2 & \text{if $z > L_b$} \\
 \end{cases} 
 \end{align}
