@@ -38,9 +38,11 @@ $$
 
 ## Conic horn:
 
+The horn contour is considered for axisymetric conical horns. Area, A and cross section radius, r:
+
 $$
 \begin{align}
-r = r_0+z\tan\left(\frac{\theta_i}{2}\right)
+r(z) = r_0+z\tan\left(\frac{\theta_i}{2}\right)
 \end{align}
 $$
 
@@ -94,11 +96,50 @@ The area expansion rate of the horn is increasing as we move away from the throa
 
 ## Keele CE horns 
 
-Explain this horn and the joining method and joining point for axisymetric horns. (horn wall angle match)
+For this horn type the throat horn contour is the exponential type which is smoothly joined to a conical horn by matching the wall angle.  From equation (2):
+
+$$
+\begin{align}
+r_{exp}(z) = \sqrt{\frac{A_0}{\pi}}e^{\frac{1}{2}k_ez}
+\end{align}
+$$
+
+$$
+\begin{align}
+\frac{\text{d}r_{exp}}{\text{d}z} = \frac{k_e}{2}\sqrt{\frac{A_0}{\pi}}e^{\frac{1}{2}k_ez}
+\end{align}
+$$
+
+and for the conic horn, from equation (5):
+
+$$
+\begin{align}
+\frac{\text{d}r_{conic}}{\text{d}z} = \tan\left(\frac{\theta_i}{2}\right)
+\end{align}
+$$
+
+threfore the joinig point is at:
+
+$$
+\begin{align}
+\frac{\text{d}r_{exp}}{\text{d}z} = \frac{\text{d}r_{conic}}{\text{d}z}
+\end{align}
+$$
+
+solving for z, at this point:
+
+$$
+\begin{align}
+z = \frac{2\ln\left(\left(\frac{2\tan\left(\frac{\theta_i}{2}\right)}{k_e}\right)\left(\sqrt{\frac{\pi}{2}}\right)\right)}{k_e}
+\end{align}
+$$
+
+However if we numericaly examine the area of this horn type (show discontinuity example)
+
 
 ## BCE horn:
 
-We can then define a linear blend of the two horns over length, $L_b$, reverting to the conventional conical form beyond the blended section (BCE horn):
+In an effort to have both a smooth area expansion and a smooth wall contour we can define a linear blend of the two horns over length, $L_b$, reverting to the conventional conical form beyond the blended section (BCE horn):
 
 $$
 \begin{align}
