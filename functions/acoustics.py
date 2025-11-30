@@ -17,3 +17,7 @@ def RoundMaxBeam(fh, beam_width):
 def FcExp(fc):
     m = 4*math.pi*fc/344;
     return m;
+
+#Export a set of y and z cords as a nodes.txt file for AKABAK3 circ sym simulation
+def ExportCircSym(y_cords, z_cords, filename):
+    return 1;

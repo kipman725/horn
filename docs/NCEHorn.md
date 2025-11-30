@@ -157,4 +157,5 @@ A_0+k_{C1}z+k_{C2}z^2 & \text{if $z > L_b$} \\
 \end{align}
 $$
 
+We can select the length $L_b$, by the using the diameter of the horn at $L_b$.  We can assume the horn is a round piston and constrain the diameter of this piston such that it's not beaming at the maximum frequency of interest (horn book). 
 
