@@ -2,6 +2,10 @@
 from functions import acoustics; #acoustics related functions
 import matplotlib.pyplot as plt
 import numpy as np
+import cadquery as cq
+from cadquery import *
+from cadquery.vis import show
+
 
 #Parameters
 z_res = 10e-3; #z-axis resolution
@@ -60,5 +64,42 @@ ax[1].set_xlabel("Distance from throat [m]");
 ax[1].set_ylabel("y [m]");
 ax[1].grid(True);
 fig.legend(loc='outside right upper')
-plt.show()                           # Show the figure.
-         
+#plt.show()                           # Show the figure.
+
+#Generate 3D models of horns     
+wp = cq.Workplane("front")    
+for r in YBCE:
+    wp = wp.circle(r)
+    wp = wp.workplane(offset=z_res) #Workplane ends up at the front of the horn
+result = wp.loft()
+
+wp_top = result.faces(">Z").workplane() #Workplane on top of horn
+wp_top = wp_top.workplane(offset=-0.5)
+result = result.rotate((0,0,0), (0,1,0), 90)
+result = result.translate((-0.5, 0, 0))
+section_result = result.section(-1) 
+
+
+#result = wp_top.circle(0.2).extrude(1)
+
+#result = result.rotateAboutCenter((1,0,0),90)
+#result.export("result.step")
+
+# rotate and position horn for cross section
+#section_result = result.workplane(offset=0.5)
+#section_result = result.section(0) 
+#test_output.export("result_section.step")
+cq.exporters.exportDXF(section_result, "circle_test.dxf")
+
+show(section_result)
+
+#Print out usefull info about the shape we made
+shape = result.val() 
+bb = shape.BoundingBox()
+print("X size:", bb.xlen)
+print("Y size:", bb.ylen)
+print("Z size:", bb.zlen)
+print("Min corner:", bb.xmin, bb.ymin, bb.zmin)
+print("Max corner:", bb.xmax, bb.ymax, bb.zmax)
+
+#print(result)
