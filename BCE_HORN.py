@@ -64,7 +64,7 @@ ax[1].set_xlabel("Distance from throat [m]");
 ax[1].set_ylabel("y [m]");
 ax[1].grid(True);
 fig.legend(loc='outside right upper')
-#plt.show()                           # Show the figure.
+plt.show()                           # Show the figure.
 
 #Generate 3D models of horns     
 wp = cq.Workplane("front")    

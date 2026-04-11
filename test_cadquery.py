@@ -11,7 +11,6 @@ height = 3.0
 for r in radii:
     wp = wp.circle(r)
     wp = wp.workplane(offset=height)
-
 result = wp.loft()
 
 show(result)

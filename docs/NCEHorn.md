@@ -2,13 +2,15 @@
 
 ## Introduction
 
-The aim of this work is to develop a horn contour for midrange horns that has an improved throat acoustic impedance characteristic compared to a conical horn, while still displaying constant directivity chacteristics in the frequency band of interest.  To ease construction this horn contour will consist of three sections: throat, middle conical section and the mouth section.  The middle section will be conical to have flat walls, considerably easing constuction complexity.    
+The aim of this work is to develop a horn contour for midrange horns that has an improved throat acoustic impedance characteristic compared to a conical horn, while still displaying constant directivity characteristics in the frequency band of interest.  To ease construction this horn contour will consist of three sections: throat, middle conical section and the mouth section.  The middle section will be conical to have flat walls, considerably easing construction complexity.  The mouth section will not be considered in this document but is of interest in future work for freestanding horns.    
 
-For ease of comparison of the contours we consider only the simpliest case of two section (throat and middle) axisymetric (round) horns.  For simulation purposes the finite horns will be terminated in acoustic absorber to eliminate mouth effects.  Four horns are the compared: conic, exponential, conic-exponential (CE) and the contour proposed in this work, blended conic-exponential (BCE).
+For ease of comparison of the contours we consider only the simplest case of two section (throat and middle) axisymmetric (round) horns.  For simulation of impedance the finite horns will be terminated in acoustic absorber to eliminate mouth effects.  For assessment of high frequency directivity infinite baffle simulations will be conducted.  Four horns are the compared: conic, exponential, conic-exponential (CE) and the contour proposed in this work, blended conic-exponential (BCE).  
 
 ## Exponential horn:
 
-Exponential horn, Area, A and cross section radius, r:
+![image](./media/exp.drawio.png)
+
+For an exponential horn with cross sectional area, $A$ and cross sectional radius, $r$:
 
 $$
 \begin{align}
@@ -28,7 +30,7 @@ k_e = \frac{4\pi f_c}{C}
 \end{align}
 $$
 
-Where $f_c$ is the exponential horn cuttoff frequency and C the speed of sound ($343 ms^{-1}$ at $20\degree C$ and at sea level).  For the exponential horn the cuttoff frequeny is constant over the whole length of the horn.  The area expansion rate is exponential:
+Where $f_c$ is the exponential horn cutoff frequency and C the speed of sound ($343 ms^{-1}$ at $20\degree C$ and at sea level).  For the exponential horn the cutoff frequency is constant over the whole length of the horn.  The area expansion rate is exponential:
 
 $$
 \begin{align}
@@ -38,7 +40,9 @@ $$
 
 ## Conic horn:
 
-The horn contour is considered for axisymetric conical horns. Area, A and cross section radius, r:
+![image](./media/conic.drawio.png)
+
+The horn contour is considered for axisymmetric conical horns with cross sectional area $A$, included angle $\theta_i$ and cross section radius, $r$:
 
 $$
 \begin{align}
@@ -84,7 +88,7 @@ k_{C2} = \pi\tan^2\left(\frac{\theta_i}{2}\right)
 \end{align}
 $$
 
-The area expansion rate of the conic horn is therfore:
+The area expansion rate of the conic horn is therefore:
 
 $$
 \begin{align}
@@ -92,11 +96,11 @@ $$
 \end{align}
 $$
 
-The area expansion rate of the horn is increasing as we move away from the throat towards the mouth, but is not equal to the exponential expansion rate.  This introduces an area expansion rate discontinuity if a conical horn section is directly joined to a exponential horn secion.
+The area expansion rate of the horn is increasing as we move away from the throat towards the mouth, but is not equal to the exponential expansion rate.  This introduces an area expansion rate discontinuity if a conical horn section is directly joined to a exponential horn section.
 
 ## Keele CE horns 
 
-For this horn type the throat horn contour is the exponential type which is smoothly joined to a conical horn by matching the wall angle.  From equation (2):
+These horns are described in the paper ["WHAT'S SO SACRED ABOUT EXPONENTIAL HORNS?", D. B. KEELE, JR., 1975](https://dbkeele.com/7-whats-so-sacred-about-exponential-horns/).  For this horn type the throat horn contour is the exponential type which is smoothly joined to a conical horn by matching the wall angle.  From equation (2):
 
 $$
 \begin{align}
@@ -118,7 +122,7 @@ $$
 \end{align}
 $$
 
-threfore the joinig point is at:
+therefore the joining point is at:
 
 $$
 \begin{align}
@@ -134,8 +138,11 @@ z = \frac{2\ln\left(\left(\frac{2\tan\left(\frac{\theta_i}{2}\right)}{k_e}\right
 \end{align}
 $$
 
-However if we numericaly examine the area of this horn type (show discontinuity example)
+However if we examine the area with respect to the distance from the throat we see a discontinuity in the area expansion.  As an example the 60 x 40 horn HR6040 sketch from Keele's paper is plot:
 
+(show discontinuity example)
+
+It is observed that the area expansion is discontinuous.
 
 ## BCE horn:
 
@@ -157,5 +164,14 @@ A_0+k_{C1}z+k_{C2}z^2 & \text{if $z > L_b$} \\
 \end{align}
 $$
 
-We can select the length $L_b$, by the using the diameter of the horn at $L_b$.  We can assume the horn is a round piston and constrain the diameter of this piston such that it's not beaming at the maximum frequency of interest (horn book). 
+We can obtain an approximation of length $L_b$, by the using the diameter of the horn at length $L_b$ from the throat.  We can assume the horn is a round piston and constrain the diameter of this piston such that beaming begins at $f_b$, where $f_b$ is the upper frequency limit of our constant directivity behavior.  The choice of this frequency is a balance between loading and usable bandwidth of the horn for off axis listeners. The book [P.G 576-577 High Quality Horn Loudspeaker Systems: History, Theory and Design, 2019, Kolbrek and Thomas](https://hornspeakersystems.info/), gives the equation:
 
+$$
+\begin{align}
+D_t = \frac{K_{t,r}}{\sin\left(\frac{\theta_i}{2}\right)f_b}
+\end{align}
+$$
+
+Several values are given for the $K_{t,r}$ constant:
+
+(Values)
