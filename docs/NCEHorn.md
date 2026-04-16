@@ -98,7 +98,7 @@ $$
 
 The area expansion rate of the horn is increasing as we move away from the throat towards the mouth, but is not equal to the exponential expansion rate.  This introduces an area expansion rate discontinuity if a conical horn section is directly joined to a exponential horn section.
 
-## Keele CE horns 
+## Keele CE horns and hyperbolic horns
 
 These horns are described in the paper ["WHAT'S SO SACRED ABOUT EXPONENTIAL HORNS?", D. B. KEELE, JR., 1975](https://dbkeele.com/7-whats-so-sacred-about-exponential-horns/).  For this horn type the throat horn contour is the exponential type which is smoothly joined to a conical horn by matching the wall angle.  From equation (2):
 
@@ -134,9 +134,39 @@ solving for z, at this point:
 
 $$
 \begin{align}
-z = \frac{2\ln\left(\left(\frac{2\tan\left(\frac{\theta_i}{2}\right)}{k_e}\right)\left(\sqrt{\frac{\pi}{2}}\right)\right)}{k_e}
+z_{join} = \frac{2\ln\left(\left(\frac{2\tan\left(\frac{\theta_i}{2}\right)}{k_e}\right)\left(\sqrt{\frac{\pi}{2}}\right)\right)}{k_e}
 \end{align}
 $$
+
+However a complication is that hyperbolic throats are used in most of Keele's examples.  This has the following area expansion: 
+
+$$
+\begin{align}
+A(z)_{t=1} = A_0\left(\cosh\left(\frac{zk_e}{2}\right)+t\sinh\left(\frac{zk_e}{2}\right)\right)^2 
+\end{align}
+$$
+
+where t is the hyperbolic parameter, for $t = 1$ the equation reduces to the exponential case:
+
+$$
+\begin{align}
+A(z)_{t=1} = A_0\left( \cfrac{e^{\cfrac{zk_e}{2}}+e^{\cfrac{zk_e}{2}}}{2} + \cfrac{e^{\cfrac{zk_e}{2}}-e^{\cfrac{zk_e}{2}}}{2}  \right)^2
+\end{align}
+$$
+
+$$
+\begin{align}
+A(z)_{t=1} = A_0e^{k_ez}
+\end{align}
+$$
+
+We can again solve the joining point using wall angle matching for the hyperbolic case:
+
+???
+
+Taking Keele's round axi-symetric example horn C1+ with the following parameters: ??? we can plot the wall contour and area:
+
+??? figures
 
 However if we examine the area with respect to the distance from the throat we see a discontinuity in the area expansion.  As an example the 60 x 40 horn HR6040 sketch from Keele's paper is plot:
 
