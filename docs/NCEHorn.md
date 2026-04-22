@@ -38,6 +38,44 @@ $$
 \end{align}
 $$
 
+## Hyperbolic horn (hypex):
+
+These are similar to the exponential case with an additional parameter, $t$, which controls the horn shape:  
+
+$$
+\begin{align}
+A(z) = A_0\left(\cosh\left(\frac{k_ez}{2}\right)+t\sinh\left(\frac{k_ez}{2}\right)\right)^2 
+\end{align}
+$$
+
+For $t = 1$ the equation reduces to the exponential case:
+
+$$
+\begin{align}
+A(z)_{t=1} = A_0\left( \cfrac{e^{\cfrac{k_ez}{2}}+e^{\cfrac{k_ez}{2}}}{2} + \cfrac{e^{\cfrac{k_ez}{2}}-e^{\cfrac{k_ez}{2}}}{2}  \right)^2
+\end{align}
+$$
+
+$$
+\begin{align}
+A(z)_{t=1} = A_0e^{k_ez}
+\end{align}
+$$
+
+Values of $t$, less than 1 result in sharper a sharper cut-off but better loading to that cut-off.  Keele often uses a value of $t=0.6$. For a axisymmetric horn the radius is: 
+
+$$
+\begin{align}
+r(z) = \sqrt{\frac{A(z)}{\pi}}
+\end{align}
+$$
+
+$$
+\begin{align}
+r(z) = \sqrt{\frac{A(0)}{\pi}}\left(\cosh\left(\frac{k_ez}{2}\right)+t\sinh\left(\frac{k_ez}{2}\right)\right)
+\end{align}
+$$
+
 ## Conic horn:
 
 ![image](./media/conic.drawio.png)
@@ -98,7 +136,7 @@ $$
 
 The area expansion rate of the horn is increasing as we move away from the throat towards the mouth, but is not equal to the exponential expansion rate.  This introduces an area expansion rate discontinuity if a conical horn section is directly joined to a exponential horn section.
 
-## Keele CE horns and hyperbolic horns
+## Keele CE horns 
 
 These horns are described in the paper ["WHAT'S SO SACRED ABOUT EXPONENTIAL HORNS?", D. B. KEELE, JR., 1975](https://dbkeele.com/7-whats-so-sacred-about-exponential-horns/).  For this horn type the throat horn contour is the exponential type which is smoothly joined to a conical horn by matching the wall angle.  From equation (2):
 
@@ -134,37 +172,25 @@ solving for z, at this point:
 
 $$
 \begin{align}
-z_{join} = \frac{2\ln\left(\left(\frac{2\tan\left(\frac{\theta_i}{2}\right)}{k_e}\right)\left(\sqrt{\frac{\pi}{2}}\right)\right)}{k_e}
+z_{join\_exp} = \frac{\ln{\left(\frac{4 \pi}{A_{0} k_{e}^{2}} \right)} + 2 \ln{\left(\tan{\left(\frac{\theta_{i}}{2} \right)} \right)}}{k_{e}}
 \end{align}
 $$
 
-However a complication is that hyperbolic throats are used in most of Keele's examples.  This has the following area expansion: 
+However a complication is that hyperbolic throats are used in most of Keele's examples.  Solving the hyperbolic radius equation in the same manner:
 
 $$
 \begin{align}
-A(z)_{t=1} = A_0\left(\cosh\left(\frac{zk_e}{2}\right)+t\sinh\left(\frac{zk_e}{2}\right)\right)^2 
-\end{align}
-$$
-
-where t is the hyperbolic parameter, for $t = 1$ the equation reduces to the exponential case:
-
-$$
-\begin{align}
-A(z)_{t=1} = A_0\left( \cfrac{e^{\cfrac{zk_e}{2}}+e^{\cfrac{zk_e}{2}}}{2} + \cfrac{e^{\cfrac{zk_e}{2}}-e^{\cfrac{zk_e}{2}}}{2}  \right)^2
+\frac{\text{d}r_{hypex}}{\text{d}z} = \frac{\text{d}r_{conic}}{\text{d}z}
 \end{align}
 $$
 
 $$
 \begin{align}
-A(z)_{t=1} = A_0e^{k_ez}
+z_{join\_hypex} = \frac{1}{k_{e}}{\ln{\left(\frac{- A_{0} k_{e}^{2} t^{2} + A_{0} k_{e}^{2} - 4 \sqrt{\pi} \sqrt{- A_{0} k_{e}^{2} t^{2} + A_{0} k_{e}^{2} + 4 \pi \tan^{2}{\left(\frac{\theta_{i}}{2} \right)}} \tan{\left(\frac{\theta_{i}}{2} \right)} + 8 \pi \tan^{2}{\left(\frac{\theta_{i}}{2} \right)}}{A_{0} k_{e}^{2} \left(t^{2} + 2 t + 1\right)} \right)}}
 \end{align}
 $$
 
-We can again solve the joining point using wall angle matching for the hyperbolic case:
-
-???
-
-Taking Keele's round axi-symetric example horn C1+ with the following parameters: ??? we can plot the wall contour and area:
+Taking Keele's round axi-symetric example horn C1+ with the following parameters: $f_c = 360 Hz$, $t=0.6$, $r_0=12.446 mm$ and $\theta_i = 108.2\degree$, we can plot the wall contour and area:
 
 ??? figures
 
