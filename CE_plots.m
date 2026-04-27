@@ -127,7 +127,11 @@ t = 0.6; %Hyperbolic throat t value
 fc = 360; %Hyperbolic cutoff frequency
 x0 = 343/(2*pi*fc);
 At = A0*(cosh(zq_m/x0)+t*sinh(zq_m/x0)).^2; %Throat section area
-%Need to add in conical expansion and join
+k_e = 4*pi*fc/343;
+k_e_2 = 1/2*x0
+theta_i = deg2rad(108.2);
+
+%Make a super basic exponential horn plot and join
 
 %We use the circular horn example as its easier to see
 C1_a = pi*(0.0254.*C1_plusI).^2; %Area [m]
@@ -140,10 +144,10 @@ xlabel('Distance from throat [m]');
 ylabel('Area [m^2]');
 hold off; 
  
-figure(2)
-plot(zq_m, gradient(C1_a))
-title('Gradient of Area of horn C1+ from Keele 1975');
-xlabel('Distance from throat [m]');
-ylabel('Gradient(Area)');
+%figure(2)
+%plot(zq_m, gradient(C1_a))
+%title('Gradient of Area of horn C1+ from Keele 1975');
+%xlabel('Distance from throat [m]');
+%ylabel('Gradient(Area)');
 
 

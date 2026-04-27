@@ -20,7 +20,7 @@ $$
 
 $$
 \begin{align}
-r(z) = \sqrt{\frac{A(z)}{\pi}}
+r(z) = \sqrt{\frac{A(z)}{\pi}} = \sqrt{\frac{A_{0}}{\pi}} e^{\cfrac{k_{e} z}{2}}
 \end{align}
 $$
 
@@ -52,7 +52,7 @@ For $t = 1$ the equation reduces to the exponential case:
 
 $$
 \begin{align}
-A(z)_{t=1} = A_0\left( \cfrac{e^{\cfrac{k_ez}{2}}+e^{\cfrac{k_ez}{2}}}{2} + \cfrac{e^{\cfrac{k_ez}{2}}-e^{\cfrac{k_ez}{2}}}{2}  \right)^2
+A(z)_{t=1} = A_0\left( \cfrac{e^{\cfrac{k_ez}{2}}+e^{-\cfrac{k_ez}{2}}}{2} + \cfrac{e^{\cfrac{k_ez}{2}}-e^{-\cfrac{k_ez}{2}}}{2}  \right)^2
 \end{align}
 $$
 
@@ -138,7 +138,11 @@ The area expansion rate of the horn is increasing as we move away from the throa
 
 ## Keele CE horns 
 
-These horns are described in the paper ["WHAT'S SO SACRED ABOUT EXPONENTIAL HORNS?", D. B. KEELE, JR., 1975](https://dbkeele.com/7-whats-so-sacred-about-exponential-horns/).  For this horn type the throat horn contour is the exponential type which is smoothly joined to a conical horn by matching the wall angle.  From equation (2):
+These horns are described in the paper ["WHAT'S SO SACRED ABOUT EXPONENTIAL HORNS?", D. B. KEELE, JR., 1975](https://dbkeele.com/7-whats-so-sacred-about-exponential-horns/).  The basic idea to be to improve the low frequency loading of constant directivity horns by joining an exponential or hyperbolic throat to a conical horn.
+
+### Exponential throat to conic:
+
+For this horn type the throat horn contour is the exponential type which is smoothly joined to a conical horn by matching the wall angle.  From equation (2):
 
 $$
 \begin{align}
@@ -152,7 +156,7 @@ $$
 \end{align}
 $$
 
-and for the conic horn, from equation (5):
+and for the conic horn, from its radius equation:
 
 $$
 \begin{align}
@@ -176,7 +180,31 @@ z_{join\_exp} = \frac{\ln{\left(\frac{4 \pi}{A_{0} k_{e}^{2}} \right)} + 2 \ln{\
 \end{align}
 $$
 
-However a complication is that hyperbolic throats are used in most of Keele's examples.  Solving the hyperbolic radius equation in the same manner:
+When plotting the combined horn the conic section starts from $z=z_{join\_exp}$, this point is effectively the new throat of the conic horn.  Therefore the conic section can be plot using the following equations:
+
+$$
+\begin{align}
+A(z_{join\_exp})=A_0e^{k_e z_{join\_exp}}
+\end{align}
+$$
+
+$$
+\begin{align}
+k_{C1} = \tan{\left(\frac{\theta_i}{2}\right)}\sqrt{4\pi A(z_{join\_exp})}
+\end{align}
+$$
+
+$$
+\begin{align}
+A_{CE\_conic}(z) = A_0 + k_{C1}(z-z_{join\_exp})+k_{C2}(z-z_{join\_exp})^2
+\end{align}
+$$
+
+The exponential throat is as per the exponential horn area equation, horn radii are trivial to calculate from the area.
+
+### Hyperbolic throat to conic:
+
+A a complication is that hyperbolic throats are used in most of Keele's examples.  Solving the hyperbolic radius equation in the same manner:
 
 $$
 \begin{align}
@@ -189,6 +217,8 @@ $$
 z_{join\_hypex} = \frac{1}{k_{e}}{\ln{\left(\frac{- A_{0} k_{e}^{2} t^{2} + A_{0} k_{e}^{2} - 4 \sqrt{\pi} \sqrt{- A_{0} k_{e}^{2} t^{2} + A_{0} k_{e}^{2} + 4 \pi \tan^{2}{\left(\frac{\theta_{i}}{2} \right)}} \tan{\left(\frac{\theta_{i}}{2} \right)} + 8 \pi \tan^{2}{\left(\frac{\theta_{i}}{2} \right)}}{A_{0} k_{e}^{2} \left(t^{2} + 2 t + 1\right)} \right)}}
 \end{align}
 $$
+
+### Example
 
 Taking Keele's round axi-symetric example horn C1+ with the following parameters: $f_c = 360 Hz$, $t=0.6$, $r_0=12.446 mm$ and $\theta_i = 108.2\degree$, we can plot the wall contour and area:
 
