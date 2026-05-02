@@ -214,7 +214,7 @@ $$
 
 $$
 \begin{align}
-z_{join\_hypex} = \frac{1}{k_{e}}{\ln{\left(\frac{- A_{0} k_{e}^{2} t^{2} + A_{0} k_{e}^{2} - 4 \sqrt{\pi} \sqrt{- A_{0} k_{e}^{2} t^{2} + A_{0} k_{e}^{2} + 4 \pi \tan^{2}{\left(\frac{\theta_{i}}{2} \right)}} \tan{\left(\frac{\theta_{i}}{2} \right)} + 8 \pi \tan^{2}{\left(\frac{\theta_{i}}{2} \right)}}{A_{0} k_{e}^{2} \left(t^{2} + 2 t + 1\right)} \right)}}
+z_{join\_hypex} = \frac{\log{\left(\cfrac{- A_{0} k^{2} t^{2} + A_{0} k^{2} + 4 \sqrt{\pi} \sqrt{- A_{0} k^{2} t^{2} + A_{0} k^{2} + 4 \pi \tan^{2}{\left(\frac{\theta_{i}}{2} \right)}} \tan{\left(\frac{\theta_{i}}{2} \right)} + 8 \pi \tan^{2}{\left(\frac{\theta_{i}}{2} \right)}}{A_{0} k^{2} \left(t^{2} + 2 t + 1\right)} \right)}}{k}
 \end{align}
 $$
 
@@ -250,7 +250,7 @@ A_0+k_{C1}z+k_{C2}z^2 & \text{if $z > L_b$} \\
 \end{align}
 $$
 
-We can obtain an approximation of length $L_b$, by the using the diameter of the horn at length $L_b$ from the throat.  We can assume the horn is a round piston and constrain the diameter of this piston such that beaming begins at $f_b$, where $f_b$ is the upper frequency limit of our constant directivity behavior.  The choice of this frequency is a balance between loading and usable bandwidth of the horn for off axis listeners. The book [P.G 576-577 High Quality Horn Loudspeaker Systems: History, Theory and Design, 2019, Kolbrek and Thomas](https://hornspeakersystems.info/), gives the equation:
+We can obtain an approximation of length $L_b$, by the using the diameter of the horn at length $L_b$ from the throat.  We can assume the horn is a round piston and constrain the diameter of this piston such that beaming begins at $f_b$, where $f_b$ is the upper frequency limit of our constant directivity behavior.  The choice of this frequency is a balance between loading and usable bandwidth of the horn for off axis listeners. The book [P.G 576-577 High Quality Horn Loudspeaker Systems: History, Theory and Design, 2019, Kolbrek and Thomas (first edition)](https://hornspeakersystems.info/), gives the equation:
 
 $$
 \begin{align}
@@ -261,3 +261,5 @@ $$
 Several values are given for the $K_{t,r}$ constant:
 
 (Values)
+
+We also should impose the critera that the gradient of the exponential section doesn't go more positive than the conic or you get a weird inflection point!
