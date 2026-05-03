@@ -4,7 +4,7 @@
 
 The aim of this work is to develop a horn contour for midrange horns that has an improved throat acoustic impedance characteristic compared to a conical horn, while still displaying constant directivity characteristics in the frequency band of interest.  To ease construction this horn contour will consist of three sections: throat, middle conical section and the mouth section.  The middle section will be conical to have flat walls, considerably easing construction complexity.  The mouth section will not be considered in this document but is of interest in future work for freestanding horns.    
 
-For ease of comparison of the contours we consider only the simplest case of two section (throat and middle) axisymmetric (round) horns.  For simulation of impedance the finite horns will be terminated in acoustic absorber to eliminate mouth effects.  For assessment of high frequency directivity infinite baffle simulations will be conducted.  Four horns are the compared: conic, exponential, conic-exponential (CE) and the contour proposed in this work, blended conic-exponential (BCE).  
+For ease of comparison of the contours we consider only the simplest case of two section (throat and middle) axisymmetric (round) horns.  For simulation of impedance the finite horns will be terminated in acoustic absorber to eliminate mouth effects.  For assessment of high frequency directivity infinite baffle simulations will be conducted.  Four horns are the compared: conic, exponential, conic-exponential (CE) (including hyperbolic) and the contour proposed in this work, blended conic-exponential (BCE).    
 
 ## Exponential horn:
 
@@ -176,27 +176,27 @@ solving for z, at this point:
 
 $$
 \begin{align}
-z_{join\_exp} = \frac{\ln{\left(\frac{4 \pi}{A_{0} k_{e}^{2}} \right)} + 2 \ln{\left(\tan{\left(\frac{\theta_{i}}{2} \right)} \right)}}{k_{e}}
+z_{join,exp} = \frac{\ln{\left(\frac{4 \pi}{A_{0} k_{e}^{2}} \right)} + 2 \ln{\left(\tan{\left(\frac{\theta_{i}}{2} \right)} \right)}}{k_{e}}
 \end{align}
 $$
 
-When plotting the combined horn the conic section starts from $z=z_{join\_exp}$, this point is effectively the new throat of the conic horn.  Therefore the conic section can be plot using the following equations:
+When plotting the combined horn the conic section starts from $z=z_{join,exp}$, this point is effectively the new throat of the conic horn.  Therefore the conic section can be plot using the following equations:
 
 $$
 \begin{align}
-A(z_{join\_exp})=A_0e^{k_e z_{join\_exp}}
-\end{align}
-$$
-
-$$
-\begin{align}
-k_{C1} = \tan{\left(\frac{\theta_i}{2}\right)}\sqrt{4\pi A(z_{join\_exp})}
+A(z_{join,exp})=A_0e^{k_e z_{join,exp}}
 \end{align}
 $$
 
 $$
 \begin{align}
-A_{CE\_conic}(z) = A_0 + k_{C1}(z-z_{join\_exp})+k_{C2}(z-z_{join\_exp})^2
+k_{C1} = \tan{\left(\frac{\theta_i}{2}\right)}\sqrt{4\pi A(z_{join,exp})}
+\end{align}
+$$
+
+$$
+\begin{align}
+A_{CE,conic}(z) = A_0 + k_{C1}(z-z_{join,exp})+k_{C2}(z-z_{join,exp})^2
 \end{align}
 $$
 
@@ -214,7 +214,7 @@ $$
 
 $$
 \begin{align}
-z_{join\_hypex} = \frac{\log{\left(\cfrac{- A_{0} k^{2} t^{2} + A_{0} k^{2} + 4 \sqrt{\pi} \sqrt{- A_{0} k^{2} t^{2} + A_{0} k^{2} + 4 \pi \tan^{2}{\left(\frac{\theta_{i}}{2} \right)}} \tan{\left(\frac{\theta_{i}}{2} \right)} + 8 \pi \tan^{2}{\left(\frac{\theta_{i}}{2} \right)}}{A_{0} k^{2} \left(t^{2} + 2 t + 1\right)} \right)}}{k}
+z_{join,hypex} = \left(\frac{1}{k_{e}}\right)\log{\left(\cfrac{- A_{0} k_{e}^{2} t^{2} + A_{0} k_{e}^{2} + 4 \sqrt{\pi} \sqrt{- A_{0} k_{e}^{2} t^{2} + A_{0} k_{e}^{2} + 4 \pi \tan^{2}{\left(\frac{\theta_{i}}{2} \right)}} \tan{\left(\frac{\theta_{i}}{2} \right)} + 8 \pi \tan^{2}{\left(\frac{\theta_{i}}{2} \right)}}{A_{0} k_{e}^{2} \left(t^{2} + 2 t + 1\right)} \right)}
 \end{align}
 $$
 
@@ -232,7 +232,7 @@ It is observed that the area expansion is discontinuous.
 
 ## BCE horn:
 
-In an effort to have both a smooth area expansion and a smooth wall contour we can define a linear blend of the two horns over length, $L_b$, reverting to the conventional conical form beyond the blended section (BCE horn):
+In an effort to have both a smooth area expansion rate and a smooth wall contour we can define a linear blend of the two horns over length, $L_b$, reverting to the conventional conical form beyond the blended section (BCE horn):
 
 $$
 \begin{align}

@@ -3,11 +3,11 @@ import sympy
 from sympy import *
 init_printing(use_unicode=True)
 z = symbols('z', positive=True)
-k = symbols('k', positive=True) #normaly ke
+k_e = symbols('k_e', positive=True) 
 t = symbols('t', positive=True)
 A0 = symbols('A0', positive=True)
 theta_i = symbols('theta_i', positive=True)
-hyp_area = A0*(cosh(k*z/2)+t*sinh(k*z/2))**2
+hyp_area = A0*(cosh(k_e*z/2)+t*sinh(k_e*z/2))**2
 #hyp_area = hyp_area.subs(t, 1)
 hyp_r = sqrt(hyp_area/pi)
 hyp_r_div = simplify(diff(hyp_r, z))

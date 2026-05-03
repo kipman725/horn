@@ -115,34 +115,47 @@ C1_plus =[0.002905326431791533 0.5028518951410881;...
 
 
 
-%Exp conical transition at 279.4 mm
+%Exp conical transition at 279.4 mm (298.45 mm from plot)
 
 zq = [0:max(C1_plus(:,1))/1000:max(C1_plus(:,1))] %points to interpolate at
 zq_m = zq*0.0254; %meters version
 C1_plusI = interp1(C1_plus(:,1),  C1_plus(:,2), zq,  'extrap');
 
 %Underlying hyperbolic throat expansion
-A0 = pi*(0.49*0.0254).^2; %Initial Throat area
+A0 = pi*(0.49*0.0254).^2; %Initial Throat area (0.98 inch diameter)
 t = 0.6; %Hyperbolic throat t value
 fc = 360; %Hyperbolic cutoff frequency
-x0 = 343/(2*pi*fc);
-At = A0*(cosh(zq_m/x0)+t*sinh(zq_m/x0)).^2; %Throat section area
-k_e = 4*pi*fc/343;
-k_e_2 = 1/2*x0
-theta_i = deg2rad(108.2);
+theta_i = deg2rad(108.2); %conical included angle (from plot)
+ke = 4*pi*fc/343;
+%At = A0*(cosh(zq_m/x0)+t*sinh(zq_m/x0)).^2; %Throat section area
+At = A0.*(cosh(ke.*zq_m/2)+t*sinh(ke.*zq_m/2)).^2; %hyperbolic throat area
 
-%Make a super basic exponential horn plot and join
+%Prediction of join point of radius angle match
+z_join_hyp = log((-A0*ke**2*t**2 + A0*ke**2 + 4*sqrt(pi)* ...
+sqrt(-A0*ke**2*t**2 + A0*ke**2 + 4*pi*tan(theta_i/2)**2)*tan(theta_i/2) ...
+ + 8*pi*tan(theta_i/2)**2)/(A0*ke**2*(t**2 + 2*t + 1)))/ke;
 
-%We use the circular horn example as its easier to see
-C1_a = pi*(0.0254.*C1_plusI).^2; %Area [m]
+hyp_r = sqrt(At/pi);
+
+%Add on conical section at z_join_hyp
+ 
+%Plot circular horn radius
 figure(1)
-plot(zq_m, C1_a)
+plot(zq_m, hyp_r);
 hold;
-plot(zq_m, At, 'r');
-title('Area of horn C1+ from Keele 1975');
-xlabel('Distance from throat [m]');
-ylabel('Area [m^2]');
+plot(zq_m, 0.0254.*C1_plusI, 'r');
 hold off; 
+
+
+%C1_a = pi*(0.0254.*C1_plusI).^2; %Area [m]
+%figure(1)
+%plot(zq_m, C1_a)
+%hold;
+%plot(zq_m, At, 'r');
+%title('Area of horn C1+ from Keele 1975');
+%xlabel('Distance from throat [m]');
+%ylabel('Area [m^2]');
+%hold off; 
  
 %figure(2)
 %plot(zq_m, gradient(C1_a))
